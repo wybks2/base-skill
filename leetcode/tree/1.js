@@ -7,11 +7,13 @@
  * }
  */
 /**
- * @param {number} n
+ * @param {number} 
  * @return {TreeNode[]}
  */
 var generateTrees = function (n) {};
-// 1 思路先有多少种排列组合 然后生成二叉树
+// 1 思路先有多少种排列组合 然后生成二叉树 递归
+
+// 搜索树 左小于跟小于右
 function generateArr(n) {
   const arr = []
   for (let i = 1; i <= n; i++) {
@@ -23,3 +25,4 @@ function generateNode(arr) {
   
 }
 // 生成二叉树
+// 2.动态规划

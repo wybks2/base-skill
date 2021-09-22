@@ -17,3 +17,32 @@
 > 用现成的库吧
 
 >
+
+4. 最后还是使用了js脚本，直接运行。成功， 开始看源码部分\
+
+> rfb.js  RFBextends EventTargetMixin("应该是事件target")
+
+> _updateConnectionState更改连接状态
+
+> _socketClose 根据this._rfbConnectionState 改变connectionState状态
+
+
+> ui.js 更上层
+
+> ui.start Render default UI and initialize settings menu
+> addSettingsHandlers() 
+
+> ui.connect 是连接
+> ui.reconnect 是重连
+> ui.disconnectFinished 1130
+> ui.initSetting() reconnect 是开启的 
+> rfb.js 812
+
+
+
+
+
+> 工程化的思维
+
+
+> pm2 监控
