@@ -33,3 +33,27 @@ url-loader less-loader css-loader file-loader image-loader
 
 不会将第三方工具包 打包到boundles中
 
+
+
+
+#### webpack [性能优化方案]（https://zhuanlan.zhihu.com/p/150731200）
+1. 提高构建速度
+> 1. 通过exclude,include 缩小搜索范围
+> 2. 合理使用resolve配置
+>> 配置resolve.module 去某些目录查找第三方模块 否则层层上找
+>> 对庞大的第三方模块设置resolve.alias 配置别名来映射一个路径，让webpack更快找到路径，副作用影响tree-shaking，适合对整体性比较强的库使用
+>> resolve.extensions 表名文件后缀列表，减少文件查找
+> 缓存之前构建过的js
+>> 将babel编译过的文件缓存起来，下次只要编译更改过的代码文件即可,大幅度加快打包时间。
+> 提前构建第三方库
+>> 处理第三方库的方法有很多种，externals
+2. 压缩打包体积
+
+
+3. 优化运行速度
+
+
+4. 提高开发效率
+> 1. dev-server 自动刷新 热更新
+> 2. sourceMap提高调试效率
+
