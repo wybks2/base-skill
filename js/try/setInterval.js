@@ -1,26 +1,48 @@
 // 循坏调用
 // 感觉有点问题
-function mySet(fn, delay) {
-  let number = 0;
-  function interv() {
-    number++;
+// function mySet(fn , delay) {
+//   let timer 
+//   function inter() {
+//     fn();
+//     timer = setTimeout(inter, delay);
+//   }
+//   inter();
+// }
+
+// stack  inter() -> fn()  1000ms inter() fn()
+
+function myInter(fn, delay) {
+  let timer;
+  const x = 3;
+  function inter() {
     fn();
     if (number > 5) {
       return;
     }
-    setTimeout(() => {
+    timer = setTimeout(() => {
       interv();
     }, delay);
   }
-  setTimeout(interv, delay);
+
+  setTimeout(inter, delay);
+  return {
+    stop: () => {
+      console.log(x)
+      clearTimeout(timer)
+    }
+  }
 }
 
 function Fn() {
-  console.log("1");
+  console.log(1)
 }
-mySet(Fn, 1000)
-// stack  inter() -> fn()  1000ms inter() fn()
 
-// setInterval 是间歇调用 setTimeout 是超时调用
-// 为什么要用 setTimeout 模拟setInterval
-// setInterval 是一定时间后加入消息队列，而不是执行代码，何时执行，取决于何时被主线程的事件循环取到
+const a = myInter(Fn, 1000);
+
+setTimeout(() => {
+  a.stop()
+}, 2000)
+
+// 进阶如何停止 
+
+// 模拟定时器 执行一次后直接清除定时器
