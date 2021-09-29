@@ -16,7 +16,12 @@ function myInter(fn, delay) {
   const x = 3;
   function inter() {
     fn();
-    timer = setTimeout(inter, delay);
+    if (number > 5) {
+      return;
+    }
+    timer = setTimeout(() => {
+      interv();
+    }, delay);
   }
 
   setTimeout(inter, delay);
