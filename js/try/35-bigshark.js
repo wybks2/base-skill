@@ -1,19 +1,5 @@
 // 树形结构转成列表
 
-const tree = [
-    {
-        id: 1,
-        text: '节点1',
-        parentId: 0,
-        children: [
-            {
-                id: 2,
-                text: '节点1_1',
-                parentId: 1
-            }
-        ]
-    }
-]
 // 转成
 // [
 //     {
@@ -45,19 +31,48 @@ const tree = [
 // console.log(list);
 //
 
-function treeToList(tree) {
-    const res = [];
-    const dfs = (tree) => {
-        tree.forEach(item => {
-            if (item.children) {
-                dfs(item.children);
-                delete item.children
+// function treeToList(tree) {
+//     const res = [];
+//     const dfs = (tree) => {
+//         tree.forEach(item => {
+//             if (item.children) {
+//                 dfs(item.children);
+//                 delete item.children
+//             }
+//             res.push(item);
+//         })
+//     }
+//     dfs(tree);
+//     console.log(res)
+//     return res
+// }
+const tree = [
+    {
+        id: 1,
+        text: '节点1',
+        parentId: 0,
+        children: [
+            {
+                id: 2,
+                text: '节点1_1',
+                parentId: 1
             }
-            res.push(item);
+        ]
+    }
+]
+
+function treeToList(tree) {
+    const list = [];
+    const dfs = (tree) => {
+        tree.forEach(node => {
+            list.push(node)
+            if (node.children) {
+                dfs(node.children)
+            }
         })
     }
     dfs(tree);
-    console.log(res)
-    return res
+    console.log(list);
+    return list
 }
 treeToList(tree);
