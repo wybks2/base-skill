@@ -31,15 +31,24 @@
 
 
 // 9/29
+// function compose(...fn) {
+//   if (fn.length == 0) return (x) => x;
+//   if (fn.length == 1) return fn[0];
+//   return fn.reduce(
+//     (pre, next) =>
+//       (...args) =>
+//         pre(next(...args))
+//   )
+// }
+
+// 10/06
 function compose(...fn) {
-  if (fn.length == 0) return (x) => x;
-  if (fn.length == 1) return fn[0];
-  return fn.reduce(
-    (pre, next) =>
-      (...args) =>
-        pre(next(...args))
-  )
+  if(fn.length == 0) return x => x;
+  if(fn.length == 1) return fn[0];
+  // 去看看函数颗粒化
+  return fn.reduce(pre, next => (...args) => pre(next(...args)));
 }
+
 // 用法如下:
 function fn1(x) {
   return x + 1;
