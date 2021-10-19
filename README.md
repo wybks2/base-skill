@@ -91,7 +91,9 @@ url重定向
 >>> 拥塞控制
 >> 扩展
 9. vue怎么定义全局的方法
-
+> 1. prototype
+> 2. vue.use
+> 3. 全局mixin
 10. vue中渲染大数据
 > 1. 使用object.freeze 固定的非响应式数据
 > 2. 虚拟列表
