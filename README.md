@@ -121,4 +121,5 @@ url重定向
 > 实现
 > 预防
 
-17. 
+17. vue双向绑定原理
+> v-model实际上就是v-bind:value 加上oninput事件的语法糖
