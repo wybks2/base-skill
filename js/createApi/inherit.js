@@ -77,8 +77,13 @@ console.log((new Animal).contructor);
 Dog.prototype = new Animal();
 //- 最简单的寄生组合式继承
 //- Dog.prototype = Object.create(Animal.prototype);
-// 构造函数指回 否则会丢失constract
-const Fn = 
+
+
+// 构造函数指回 否则会丢失constract 寄生组合式继承
+const Fn = function() {};
+Fn.prototype = Animal.prototype;
+Dog.prototype = new Fn();
+
 Dog.prototype.contructor = Dog;
 const dog1 = new Dog("yellow", 23)
 console.log(dog1.contructor)
