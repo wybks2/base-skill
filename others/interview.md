@@ -39,3 +39,5 @@
   flex-basis: unset;
 
 ```
+
+#### webpack loader pre->normal->inline->post

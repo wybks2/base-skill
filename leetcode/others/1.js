@@ -32,7 +32,7 @@ var twoSum2 = function(nums, target) {
     // 
     const sumMap = new Map();
     for(let i = 0; i< nums.length; i++) {
-        if(sumMap.has(nums[i])) {
+        if(!sumMap.has(nums[i])) {
             sumMap.set(target-nums[i], i)
         } else {
             return [sumMap.get(nums[i]), j]

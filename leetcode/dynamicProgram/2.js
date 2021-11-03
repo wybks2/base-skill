@@ -20,3 +20,6 @@ var maxSubArray = function (nums) {
   return ans;
 };
 // 分治法
+var maxSubArray = function(nums) {
+  
+};
